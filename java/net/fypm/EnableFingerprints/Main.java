@@ -27,13 +27,6 @@ public class Main implements IXposedHookLoadPackage {
             }
 
             try {
-                XposedHelpers.findAndHookMethod("com.android.keyguard.KeyguardUpdateMonitor", lpparam.classLoader, "shouldListenForFingerprint", XC_MethodReplacement.returnConstant(true));
-                XposedBridge.log("[EnableFingerprints Debug] Replacing  shouldListenForFingerprint");
-            } catch (Throwable e) {
-                XposedBridge.log(e);
-            }
-
-            try {
                 XposedHelpers.findAndHookMethod("com.android.keyguard.KeyguardUpdateMonitor", lpparam.classLoader, "isUnlockCompleted", XC_MethodReplacement.returnConstant(true));
                 XposedBridge.log("[EnableFingerprints Debug] Replacing  isUnlockCompleted");
             } catch (Throwable e) {
